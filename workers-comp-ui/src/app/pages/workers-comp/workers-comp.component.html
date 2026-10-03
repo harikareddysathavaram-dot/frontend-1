@@ -1,0 +1,60 @@
+<div class="hero">
+  <div>
+    <h1>Workers Compensation Insurance</h1>
+    <p>Financial protection for employees injured at work, and for the business that employs them. Cover medical bills and lost wages without the paperwork.</p>
+    <div class="row" style="max-width:400px">
+      <a class="btn p" [routerLink]="cta()">Get covered</a>
+      <a class="btn" routerLink="." fragment="how">How it works</a>
+    </div>
+  </div>
+  <div class="chips">
+    <div>🏥 Medical costs covered from day one</div>
+    <div>💼 Wage support during recovery</div>
+    <div>⚡ Faster, surveyor-verified claims</div>
+    <div>📄 Policy issued online</div>
+  </div>
+</div>
+
+<section class="w">
+  <div class="two">
+    <div>
+      <h2>What's covered</h2>
+      <ul class="tick">
+        <li>Hospital and treatment costs after a workplace injury</li>
+        <li>Part of lost wages while an employee recovers</li>
+        <li>Disability benefits, partial or permanent</li>
+        <li>Death benefit for the family</li>
+        <li>Occupational illness linked to the job</li>
+        <li>Rehabilitation and follow-up care</li>
+      </ul>
+    </div>
+    <div>
+      <h2>What's not covered</h2>
+      <ul class="tick x">
+        <li>Injuries caused by intoxication</li>
+        <li>Self-inflicted injuries</li>
+        <li>Injuries outside work duties</li>
+        <li>Claims made on a lapsed policy</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="w alt" id="how">
+  <h2>How it works</h2>
+  <div class="steps">
+    <div>Sign in<span>As an employer</span></div>
+    <div>Pick a plan<span>Based on team size</span></div>
+    <div>Fill the form<span>Policy turns active</span></div>
+    <div>Raise a claim<span>For an injured employee</span></div>
+    <div>Surveyor decides<span>Approve or reject</span></div>
+    <div>Payment<span>Status updates for all</span></div>
+  </div>
+</section>
+
+<section class="w">
+  <h2>Common questions</h2>
+  @for (f of faqs; track f.q) {
+    <details><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>
+  }
+</section>

@@ -1,0 +1,82 @@
+.band {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  max-width: 640px;
+  margin-bottom: 32px;
+}
+
+.band button {
+  background: var(--card);
+  border: 1.5px solid #d9e2ec;
+  border-radius: 14px;
+  padding: 20px 22px;
+  font-weight: 700;
+  font-size: 15.5px;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.band button:hover {
+  border-color: var(--blue);
+}
+
+.band button.on {
+  border-color: var(--blue);
+  background: #f0f6ff;
+  box-shadow: 0 0 0 1px var(--blue);
+}
+
+.band span {
+  display: block;
+  font-weight: 400;
+  color: var(--mute);
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.plan {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+}
+
+.plan:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.plan.hot {
+  border: 2px solid var(--blue);
+  box-shadow: 0 4px 16px rgba(27, 95, 196, 0.08);
+}
+
+.plan h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 4px;
+}
+
+.plan .pr {
+  font: 700 32px 'Source Serif 4', Georgia, serif;
+  color: var(--ink);
+  margin: 14px 0 2px;
+}
+
+.plan small {
+  color: var(--mute);
+  font-size: 13px;
+}
+
+.plan ul {
+  flex: 1;
+  margin: 18px 0;
+}
+

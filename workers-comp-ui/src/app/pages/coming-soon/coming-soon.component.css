@@ -1,0 +1,37 @@
+.soonbox {
+  max-width: 580px;
+  margin: 70px auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.soonbox svg {
+  width: 250px;
+  height: 160px;
+  max-width: 100%;
+  margin-bottom: 24px;
+}
+
+.soonbox h2 {
+  font: 700 32px 'Source Serif 4', Georgia, serif;
+  color: var(--ink);
+  margin: 0 0 14px;
+}
+
+.soonbox .badge {
+  margin: 0 0 18px;
+  font-size: 12.5px;
+  padding: 4px 14px;
+}
+
+.soonbox p {
+  color: var(--mute);
+  font-size: 15px;
+  margin: 0 0 26px;
+  max-width: 44ch;
+  line-height: 1.5;
+}
+

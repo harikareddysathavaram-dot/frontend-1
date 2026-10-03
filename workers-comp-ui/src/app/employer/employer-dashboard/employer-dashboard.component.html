@@ -1,0 +1,36 @@
+<h2>Policies &amp; claims</h2>
+<div class="kp">
+  <div><b>{{ policies().length }}</b><span>Active policies</span></div>
+  <div><b>{{ claims().length }}</b><span>Claims raised</span></div>
+  <div><b>{{ withSurveyor() }}</b><span>With surveyor</span></div>
+  <div><b>{{ paidTotal() | inr }}</b><span>Paid out</span></div>
+</div>
+
+<div class="panel">
+  <h3>Your policies</h3>
+  @if (policies().length) {
+    <table>
+      <tr><th>Policy</th><th>Company</th><th>Plan</th><th>Employees</th><th>Premium</th><th>Status</th></tr>
+      @for (p of policies(); track p.id) {
+        <tr><td>{{ p.id }}</td><td>{{ p.company }}</td><td>{{ p.plan }}</td><td>{{ p.employees }}</td><td>{{ p.premium | inr }}</td><td><span class="tag Active">{{ p.status }}</span></td></tr>
+      }
+    </table>
+  } @else {
+    <p>No policy yet. Choose a plan under Premium management.</p>
+    <a class="btn p" routerLink="/employer/premium">Choose a plan</a>
+  }
+</div>
+
+@if (policies().length) {
+  <div class="panel">
+    <h3>Raise a claim</h3>
+    <div class="row">
+      <div><label for="ce">Employee</label><select id="ce" [(ngModel)]="form.employee">@for (e of employees(); track e) { <option>{{ e }}</option> }</select></div>
+      <div><label for="cd">What happened?</label><input id="cd" type="text" placeholder="Fall from loading dock" [(ngModel)]="form.incident"></div>
+      <div><label for="ca">Claim amount (₹)</label><input id="ca" type="number" placeholder="50000" [(ngModel)]="form.amount"></div>
+      <button class="btn p" (click)="submitClaim()">Submit claim</button>
+    </div>
+  </div>
+}
+
+<div class="panel"><h3>Your claims</h3><app-claim-table [claims]="claims()" /></div>

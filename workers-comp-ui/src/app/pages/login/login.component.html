@@ -1,0 +1,13 @@
+<div class="box">
+  <h2>Sign in</h2>
+  <p class="sub">Choose how you want to log in.</p>
+  <label for="email">Email</label>
+  <input id="email" type="email" [(ngModel)]="email">
+  <label for="password">Password</label>
+  <input id="password" type="password" [(ngModel)]="password">
+  <div class="actions">
+    <button class="btn p" (click)="signIn('Employer')">Login as Employer</button>
+    <button class="btn" (click)="signIn('Surveyor')">Login as Surveyor</button>
+    <button class="btn" (click)="signIn('Admin')">Login as Admin</button>
+  </div>
+</div>

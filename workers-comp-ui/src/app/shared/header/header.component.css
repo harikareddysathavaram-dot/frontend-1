@@ -1,0 +1,80 @@
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 4vw;
+  background: #ffffff;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: 68px;
+}
+
+.logo {
+  font: 700 22px 'Source Serif 4', Georgia, serif;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #0d2745;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo i {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--hero);
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Public Sans', sans-serif;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  overflow-x: auto;
+  flex: 1;
+  height: 100%;
+  margin: 0 16px;
+}
+
+.nav a {
+  height: 68px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 14px;
+  color: #55657c;
+  font-size: 14.5px;
+  font-weight: 500;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+  text-decoration: none;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  box-sizing: border-box;
+}
+
+.nav a:hover {
+  color: var(--ink);
+}
+
+.nav a.on {
+  color: var(--blue);
+  border-bottom: 3px solid var(--blue);
+  font-weight: 600;
+}
+
+.user-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+

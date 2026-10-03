@@ -1,0 +1,13 @@
+<div class="page">
+  <h2>Surveyor workspace</h2>
+  <div class="kp">
+    <div><b>{{ toReview() }}</b><span>To review</span></div>
+    <div><b>{{ paid().length }}</b><span>Approved and paid</span></div>
+    <div><b>{{ rejected() }}</b><span>Rejected</span></div>
+    <div><b>{{ paidTotal() | inr }}</b><span>Total paid</span></div>
+  </div>
+  <div class="panel">
+    <h3>Claim queue</h3>
+    <app-claim-table [claims]="claims()" [showActions]="true" emptyText="No claims to review yet. Raise one from the employer workspace first." (decision)="decide($event)" />
+  </div>
+</div>

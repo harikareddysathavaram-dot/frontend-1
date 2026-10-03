@@ -1,0 +1,27 @@
+<h2>Premium management</h2>
+<p class="sub">How many employees does your company have?</p>
+
+<div class="band">
+  @for (b of bands; track b.label; let i = $index) {
+    <button [class.on]="band() === i" (click)="band.set(i)">{{ b.label }}<span>{{ b.hint }}</span></button>
+  }
+</div>
+
+@if (band() !== null) {
+  <div class="grid">
+    @for (p of plans(); track p.id) {
+      <div class="plan" [class.hot]="p.popular">
+        <h3>{{ p.name }}</h3>
+        <small>{{ p.audience }}</small>
+        <div class="pr">{{ p.rate[band()!] | inr }}</div>
+        <small>per employee, per year</small>
+        <ul class="tick">
+          <li>Medical cover up to {{ p.medical }}</li>
+          <li>Wage support at {{ p.wage }}</li>
+          <li>Death benefit {{ p.death }}</li>
+        </ul>
+        <a class="btn p" [routerLink]="['/employer/buy', p.id]" [queryParams]="{ band: band() }">Buy now</a>
+      </div>
+    }
+  </div>
+}

@@ -1,0 +1,31 @@
+.tabs {
+  display: flex;
+  gap: 8px;
+  padding: 12px 5vw;
+  background: #e9eef6;
+  border-bottom: 1px solid #d9e2ec;
+  overflow-x: auto;
+  align-items: center;
+}
+
+.tabs a {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #55657c;
+  white-space: nowrap;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.tabs a:hover {
+  color: #0d2745;
+}
+
+.tabs a.on {
+  background: #ffffff;
+  color: #0d2745;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+

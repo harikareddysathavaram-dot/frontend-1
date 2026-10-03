@@ -1,0 +1,15 @@
+<section class="w">
+  <h2>Business Insurance</h2>
+  <p class="sub">Pick a cover. Workers Compensation is available now.</p>
+  <div class="grid">
+    @for (c of covers; track c.title) {
+      <a class="tile" [class.soon]="!c.live"
+         [routerLink]="c.live ? '/business-insurance/workers-comp' : ['/business-insurance/not-started', c.title]">
+        <span class="ic">{{ c.icon }}</span><h3>{{ c.title }}</h3><p>{{ c.desc }}</p>
+        <span class="badge" [class.live]="c.live">{{ c.live ? 'Live now' : 'Not yet started' }}</span>
+      </a>
+    }
+  </div>
+  <p style="margin-top: 48px; color: var(--mute); font-size: 13.5px;">Capstone demo with sample data. Plans, prices and numbers are illustrative.</p>
+</section>
+

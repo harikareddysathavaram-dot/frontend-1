@@ -1,0 +1,18 @@
+<header class="top">
+  <a class="logo" routerLink="/"><i>S</i>Stagwell</a>
+  <nav class="nav">
+    <a routerLink="/" routerLinkActive="on" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    @for (l of links; track l.path) {
+      <a [routerLink]="l.path" routerLinkActive="on">{{ l.label }}</a>
+    }
+  </nav>
+  @if (auth.user(); as u) {
+    <div class="user-actions">
+      <a class="btn" [routerLink]="auth.homeRoute(u.role)">{{ u.role }} workspace</a>
+      <button class="btn" (click)="logout()">Sign out</button>
+    </div>
+  } @else {
+    <a class="btn p" routerLink="/login">Sign in</a>
+  }
+</header>
+

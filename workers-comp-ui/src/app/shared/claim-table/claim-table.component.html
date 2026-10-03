@@ -1,0 +1,21 @@
+@if (!claims.length) {
+  <p>{{ emptyText }}</p>
+} @else {
+  <table>
+    <tr><th>Claim</th><th>Policy</th><th>Employee</th><th>Incident</th><th>Amount</th><th>Status</th>@if (showActions) { <th></th> }</tr>
+    @for (c of claims; track c.id) {
+      <tr>
+        <td>{{ c.id }}</td><td>{{ c.policyId }}</td><td>{{ c.employee }}</td><td>{{ c.incident }}</td><td>{{ c.amount | inr }}</td>
+        <td><span class="tag" [class.Review]="c.status === 'Review pending'" [class.Paid]="c.status === 'Paid'" [class.Rejected]="c.status === 'Rejected'">{{ c.status }}</span></td>
+        @if (showActions) {
+          <td>
+            @if (c.status === 'Review pending') {
+              <button class="btn s g" (click)="decision.emit({ id: c.id, approve: true })">Approve</button>
+              <button class="btn s r" (click)="decision.emit({ id: c.id, approve: false })">Reject</button>
+            }
+          </td>
+        }
+      </tr>
+    }
+  </table>
+}

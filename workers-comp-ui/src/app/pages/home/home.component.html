@@ -1,0 +1,40 @@
+<div class="hero">
+  <div>
+    <h1>Insurance that keeps your life and business moving.</h1>
+    <p>Compare cover, buy online and settle claims digitally. Start with Workers Compensation, our first live product for employers.</p>
+    <div class="row" style="max-width:400px">
+      <a class="btn p" routerLink="/business-insurance">Explore business insurance</a>
+      <a class="btn" routerLink="/about">About us</a>
+    </div>
+  </div>
+  <div class="chips">
+    <div>🛡️ Cover active within minutes of purchase</div>
+    <div>🔍 Surveyor-verified claims</div>
+    <div>💳 Payments tracked end to end</div>
+  </div>
+</div>
+
+<section class="w">
+  <h2>Choose what you want to protect</h2>
+  <div class="grid">
+    <a class="tile" routerLink="/business-insurance"><span class="ic">🏢</span><h3>Business Insurance</h3><p>Five covers for companies of every size.</p><span class="badge live">Live</span></a>
+    @for (o of others; track o.path) {
+      <a class="tile soon" [routerLink]="o.path"><span class="ic">{{ o.icon }}</span><h3>{{ o.title }}</h3><p>Coming soon.</p><span class="badge">Not yet started</span></a>
+    }
+  </div>
+</section>
+
+<section class="w alt">
+  <h2>Why insure at all?</h2>
+  <div class="two">
+    <div>
+      <p>A single workplace accident or storm can cost more than a year of profit. Insurance turns an unpredictable loss into a fixed, planned premium.</p>
+      <p>Good cover pays quickly, so owners and families can focus on recovery and not on arranging money.</p>
+    </div>
+    <div class="stats">
+      <div><b>24x7</b><span>Online policy access</span></div>
+      <div><b>3 roles</b><span>Admin, employer, surveyor</span></div>
+      <div><b>0 paper</b><span>Fully digital claims</span></div>
+    </div>
+  </div>
+</section>

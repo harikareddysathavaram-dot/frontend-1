@@ -1,0 +1,55 @@
+<div class="page">
+  <h2>Admin dashboard</h2>
+  <div class="kp">
+    <div><b>{{ employers().length }}</b><span>Employers</span></div>
+    <div><b>{{ surveyors().length }}</b><span>Surveyors</span></div>
+    <div><b>{{ totals().policies }}</b><span>Policies bought</span></div>
+    <div><b>{{ totals().approved }}</b><span>Claims approved</span></div>
+    <div><b>{{ totals().rejected }}</b><span>Claims rejected</span></div>
+    <div><b>{{ totals().pending }}</b><span>Claims pending</span></div>
+  </div>
+
+  <div class="panel">
+    <h3>Employers</h3>
+    <table>
+      <tr><th>Company</th><th>Policies bought</th><th>Claims approved</th><th>Claims rejected</th><th>Claims pending</th><th>Employees</th><th></th></tr>
+      @for (e of employers(); track e.company) {
+        <tr>
+          <td><b>{{ e.company }}</b></td><td>{{ e.policies }}</td><td>{{ e.approved }}</td><td>{{ e.rejected }}</td><td>{{ e.pending }}</td><td>{{ e.employees }}</td>
+          <td><button class="btn s" [class.p]="selectedName() === e.company" (click)="selectedName.set(e.company)">View details</button></td>
+        </tr>
+      }
+    </table>
+  </div>
+
+  @if (selected(); as s) {
+    <div class="panel">
+      <h3>{{ s.company }}</h3>
+      <div class="kp">
+        <div><b>{{ s.employees }}</b><span>Employees</span></div>
+        <div><b>{{ s.policies }}</b><span>Policies bought</span></div>
+        <div><b>{{ s.approved }}</b><span>Claims approved</span></div>
+        <div><b>{{ s.rejected }}</b><span>Claims rejected</span></div>
+      </div>
+      <table>
+        <tr><th>Employee</th><th>Designation</th><th>Cover</th></tr>
+        @for (m of s.employeeList.slice(0, 8); track m.name) {
+          <tr><td>{{ m.name }}</td><td>{{ m.designation }}</td><td><span class="tag Active">Active</span></td></tr>
+        }
+      </table>
+      <p style="color:var(--mute);margin:12px 0 0">Showing {{ Math.min(8, s.employeeList.length) }} of {{ s.employees }} employees.</p>
+    </div>
+  } @else {
+    <p class="sub-hint">Select View details on an employer to see its employees.</p>
+  }
+
+  <div class="panel">
+    <h3>Surveyors</h3>
+    <table>
+      <tr><th>Surveyor</th><th>Claims approved</th><th>Claims rejected</th><th>Claims pending</th></tr>
+      @for (v of surveyors(); track v.name) {
+        <tr><td><b>{{ v.name }}</b></td><td>{{ v.approved }}</td><td>{{ v.rejected }}</td><td>{{ v.pending }}</td></tr>
+      }
+    </table>
+  </div>
+</div>

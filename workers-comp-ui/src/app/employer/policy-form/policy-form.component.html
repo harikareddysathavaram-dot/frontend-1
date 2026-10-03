@@ -1,0 +1,33 @@
+<a class="btn s" routerLink="/employer/premium">← Back to plans</a>
+@if (plan(); as p) {
+  <h2 style="margin-top:16px">{{ p.name }} plan</h2>
+  <p class="sub">Complete the form to activate your policy.</p>
+  <div class="two">
+    <div class="panel">
+      <h3>What you get</h3>
+      <ul class="tick">
+        <li>Medical cover up to {{ p.medical }}</li>
+        <li>Wage support at {{ p.wage }}</li>
+        <li>Death benefit {{ p.death }}</li>
+        <li>Surveyor-verified claims</li>
+      </ul>
+      <p style="color:var(--mute)">Rate: {{ rate | inr }} per employee per year</p>
+    </div>
+    <div class="panel">
+      <h3>Policy application</h3>
+      <label for="co">Company name</label>
+      <input id="co" type="text" placeholder="Greenfield Logistics" [(ngModel)]="form.company">
+      <label for="ind">Industry</label>
+      <select id="ind" [(ngModel)]="form.industry">@for (i of industries; track i) { <option>{{ i }}</option> }</select>
+      <label for="n">Number of employees</label>
+      <input id="n" type="number" [(ngModel)]="form.employees">
+      <label for="sd">Policy start date</label>
+      <input id="sd" type="date" [(ngModel)]="form.startDate">
+      <label for="ct">Contact email</label>
+      <input id="ct" type="email" [(ngModel)]="form.contactEmail">
+      <div class="kp" style="margin:18px 0 0"><div><b>{{ total | inr }}</b><span>Total yearly premium</span></div></div>
+      <label><input type="checkbox" [(ngModel)]="form.confirmed">I confirm the details are correct</label>
+      <button class="btn p" style="width:100%;margin-top:10px" (click)="submit()">Pay and activate policy</button>
+    </div>
+  </div>
+}
